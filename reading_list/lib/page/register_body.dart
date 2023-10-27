@@ -22,7 +22,7 @@ class RegisterBody extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Text(
-                'Register for \nG - Chat Box',
+                'Register for \nReading List',
                 style: TextStyle(
                   fontSize: 45,
                   fontWeight: FontWeight.bold,
