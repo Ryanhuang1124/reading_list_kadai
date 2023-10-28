@@ -12,6 +12,7 @@ class ReadingListPage extends StatelessWidget {
 
   final uiState = Get.put(ReadingListController());
   final backEnd = Get.put(BackEndConnector());
+  final editRowState = Get.put(EditRowController());
 
   @override
   Widget build(BuildContext context) {
@@ -39,6 +40,7 @@ class ReadingListPage extends StatelessWidget {
               border: TableBorder.all(
                   color: Colors.black87, width: 1.0, style: BorderStyle.solid),
               children: tableRowBuilder(
+                  editRowState: editRowState,
                   tableRowDataList: fetchedList,
                   uiState: uiState,
                   backEnd: backEnd),
@@ -61,6 +63,7 @@ class ReadingListPage extends StatelessWidget {
 
 List<TableRow> tableRowBuilder(
     {required tableRowDataList,
+    required EditRowController editRowState,
     required ReadingListController uiState,
     required BackEndConnector backEnd}) {
   List<TableRow> tableRowList = [];
@@ -156,6 +159,12 @@ List<TableRow> tableRowBuilder(
         children: [
           IconButton(
             onPressed: () {
+              editRowState.titleController.text = tableRowData.title;
+              editRowState.partController.text = tableRowData.part;
+              editRowState.authorController.text = tableRowData.author;
+              editRowState.publishingController.text = tableRowData.publishing;
+              editRowState.memoController.text = tableRowData.memo;
+
               Get.to(EditRowPage(bookId: tableRowData.bookId));
             },
             icon: const Icon(Icons.edit),
