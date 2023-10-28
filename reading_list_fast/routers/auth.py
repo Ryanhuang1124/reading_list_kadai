@@ -9,6 +9,7 @@ from starlette import status
 
 from database import DB_ANNOTATED
 from models import Users
+from keys import SECRET_KEY,ALGORITHM
 
 
 router = APIRouter(
@@ -39,8 +40,7 @@ def verify_token( token: Annotated[str,Depends(OAuth2PasswordBearer(tokenUrl='au
 
 VERIFY_TOKEN = Annotated[dict,Depends(verify_token)]
 bcrypt = CryptContext(schemes = ['bcrypt'],deprecated = 'auto')
-SECRET_KEY = "b8dc57542428ae80680f8dc03216a82f866e4ac846408e2c4b4335dbedb900d9"
-ALGORITHM = "HS256"
+
 
 class ResponseToken(BaseModel):
     access_token : str
