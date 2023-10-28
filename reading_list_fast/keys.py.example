@@ -1,0 +1,3 @@
+# type "openssl rand -hex 32" to Terminal, Generate hex 32-digit-key.
+SECRET_KEY = "32-digit-key"
+ALGORITHM = "HS256"
