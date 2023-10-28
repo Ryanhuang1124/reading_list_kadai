@@ -4,7 +4,8 @@ from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker,Session
 from sqlalchemy.ext.declarative import declarative_base
 
-SQLALCHEMY_DATABASE_URL = 'postgresql://bxrvflgw:i_-KaWXQ5RXzjdWII8qOESe8LhtcX2iz@arjuna.db.elephantsql.com/bxrvflgw'
+#postgreSQL
+SQLALCHEMY_DATABASE_URL = 'DB URL'
 
 engine = create_engine( SQLALCHEMY_DATABASE_URL )
 local_session = sessionmaker( autocommit=False, autoflush=False,bind = engine)
